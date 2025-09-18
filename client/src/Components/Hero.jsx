@@ -13,9 +13,9 @@ const Hero = () => {
         <p className="text-2xl leading-11 mt-6 text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequatur dolore nam modi labore facere id ut veniam itaque quasi, sunt unde? Mollitia id soluta animi repudiandae omnis quibusdam illo blanditiis possimus ex sint cupiditate corrupti labore non, qui est porro excepturi quasi labor.</p>
       </div>
       <div className="grid grid-cols-3 gap-6">
-        <img src={heroOne} alt="heroImg"  className="rounded-2xl border border-amber-500"/>
-        <video src={heroVideo}  className="rounded-2xl border border-amber-500"></video>
-        <img src={heroTwo} alt="heroImg" className="rounded-2xl border border-amber-500" />
+        <img src={heroOne} alt="heroImg"  className="rounded-3xl h-110  w-full object-fill border-1 border-amber-500"/>
+        <video src={heroVideo} controls className="rounded-3xl h-110 w-full object-fill border-1 border-amber-500 relative top-10"></video>
+        <img src={heroTwo} alt="heroImg" className="rounded-3xl h-110 w-full object-fill  border-1 border-amber-500 relative top-20" />
       </div>
     </div>
   );

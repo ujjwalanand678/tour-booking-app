@@ -1,0 +1,24 @@
+import React from "react";
+import heroOne from "../assets/hero-1.jpg"
+import heroTwo from "../assets/hero-2.jpg"
+import heroVideo from "../assets/hero-video.mp4"
+const Hero = () => {
+  return (
+    <div className="grid grid-cols-2 gap-7">
+      <div >
+        <p className="text-2xl bg-amber-500 w-70 px-3 font-bold text-center rounded-full text-white py-2 mb-5">Know before you go</p>
+        <p className=" text-6xl">Travelling opens the</p>
+        <p className=" text-6xl">doors to creating</p>
+        <p className="text-amber-500 text-6xl ">memories</p>
+        <p className="text-2xl leading-11 mt-6 text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequatur dolore nam modi labore facere id ut veniam itaque quasi, sunt unde? Mollitia id soluta animi repudiandae omnis quibusdam illo blanditiis possimus ex sint cupiditate corrupti labore non, qui est porro excepturi quasi labor.</p>
+      </div>
+      <div className="grid grid-cols-3 gap-6">
+        <img src={heroOne} alt="heroImg"  className="rounded-2xl border border-amber-500"/>
+        <video src={heroVideo}  className="rounded-2xl border border-amber-500"></video>
+        <img src={heroTwo} alt="heroImg" className="rounded-2xl border border-amber-500" />
+      </div>
+    </div>
+  );
+};
+
+export default Hero;

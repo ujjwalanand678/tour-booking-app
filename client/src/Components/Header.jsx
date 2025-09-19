@@ -8,21 +8,21 @@ const Header = () => {
         <div className="flex flex-6">
             <img src={travelLogo} alt="logo" className="h-38 relative top-7 " />
         </div>
-        <div className="flex flex-6 font-bold text-xl text-slate-800 justify-evenly">
+        <div className="flex flex-6 text-xl text-slate-800 justify-evenly">
             <Link to="/">
-            <h2 className="">HOME</h2>
+            <h2 className="bg-amber-500 rounded-full font-medium text-white py-2 px-4">HOME</h2>
             </Link>
              <Link to="/">
-            <h2 className="">ABOUT</h2>
+            <h2 className="bg-amber-500 rounded-full font-medium text-white py-2 px-4">ABOUT</h2>
             </Link>
              <Link to="/">
-            <h2 className="">TOUR</h2>
+            <h2 className="bg-amber-500 rounded-full font-medium text-white py-2 px-4">TOUR</h2>
             </Link>
              <Link to="/">
-            <h2 className=" ">LOGIN</h2>
+            <h2 className="bg-amber-500 rounded-full font-medium text-white py-2 px-4">LOGIN</h2>
             </Link>
              <Link to="/">
-            <h2 className="">REGISTER</h2>
+            <h2 className="bg-amber-500 rounded-full font-medium text-white py-2 px-4">REGISTER</h2>
             </Link>
         </div>
     </nav>

@@ -6,12 +6,14 @@ import ClientLove from "./ClientLove";
 import Gallary from "./Gallary";
 import Subscribe from "./Subscribe";
 import Footer from "./Footer";
+import Search from "./Search";
 
 const Home = () => {
   return (
   
   <div className=" pt-30">
     <Hero/> 
+    <Search/>
     <WhatWeServe/>
     <Experience/>
     <Gallary/>

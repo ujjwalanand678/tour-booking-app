@@ -5,7 +5,7 @@ import weather from "../assets/weather.png";
 
 const WhatWeServe = () => {
   return (
-    <div className="grid grid-cols-4 mt-25 gap-10">
+    <div className="grid grid-cols-4 mt-25 gap-10 px-40">
       <div>
         <p className="bg-amber-500 w-40 py-2 font-medium text-lg rounded-full text-center mb-3 text-white">
           What we serve

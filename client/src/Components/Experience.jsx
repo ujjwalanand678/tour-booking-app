@@ -3,7 +3,7 @@ import experience from "../assets/experience.png";
 
 const Experience = () => {
   return (
-    <div className="grid grid-cols-2 gap-30 mt-20">
+    <div className="grid grid-cols-2 gap-30 mt-20 px-40">
       <div>
         <p className="bg-amber-500 w-40 py-2 font-medium text-lg rounded-full text-center mb-3 text-white">
           Experience

@@ -5,9 +5,9 @@ import { LuMapPinPlusInside } from "react-icons/lu";
 import { FaUserFriends } from "react-icons/fa";
 const Search = () => {
   return (
-  <div className="mx-40 mt-30 mb-30">
+  <div className="mx-40 mt-30 mb-40">
         <div className="w-full flex justify-center">
-      <div className="flex items-center bg-white rounded-full shadow-xl px-6 py-8 space-x-16 ">
+      <div className="flex items-center bg-white rounded-full shadow-xl/20  px-6 py-8 space-x-16 ">
         {/* Location */}
         <div className="flex items-center space-x-3">
           <LuMapPin className="text-red-400 "  size={25}/>

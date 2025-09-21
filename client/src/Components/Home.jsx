@@ -5,6 +5,7 @@ import Experience from "./Experience";
 import ClientLove from "./ClientLove";
 import Gallary from "./Gallary";
 import Subscribe from "./Subscribe";
+import Footer from "./Footer";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
     <Gallary/>
     <ClientLove/>
     <Subscribe/>
+    <Footer/>
   </div>
   
   )

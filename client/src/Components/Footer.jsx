@@ -2,10 +2,11 @@ import React from "react";
 import travel from "../assets/travel-3.png"
 const Footer = () => {
   return (
-    <div className="mx-40 grid grid-cols-4 mt-20">
+    <>
+    <div className="mx-40 grid grid-cols-4 mt-20 gap-10" >
       <div>
-        <img src={travel} alt="" className="w-30"/>
-        <p>
+        <img src={travel} alt="" className="w-40 relative left-12" />
+        <p className="text-gray-700 text-xl ">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, natus!
         </p>
       </div>
@@ -33,7 +34,11 @@ const Footer = () => {
           <li className="text-xl leading-12">Phone:</li>
         </ul>
       </div>
+      
     </div>
+    <hr className="opacity-40 mt-10"/>
+    <p className="text-gray-700 text-xl mt-10 mb-10 text-center">Copyright {new Date().getFullYear()}, Design and develop by UJJWAL ANAND. All rights reserved.</p>
+    </>
   );
 };
 

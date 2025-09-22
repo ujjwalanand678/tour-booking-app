@@ -12,16 +12,16 @@ const Header = () => {
             <Link to="/">
             <h2 className="bg-amber-500 rounded-full font-medium text-white py-2 px-4 hover:bg-amber-600 transition">HOME</h2>
             </Link>
-             <Link to="/">
+             <Link to="/about">
             <h2 className="bg-amber-500 rounded-full font-medium text-white py-2 px-4 hover:bg-amber-600 transition">ABOUT</h2>
             </Link>
-             <Link to="/">
+             <Link to="/tour">
             <h2 className="bg-amber-500 rounded-full font-medium text-white py-2 px-4 hover:bg-amber-600 transition">TOUR</h2>
             </Link>
-             <Link to="/">
+             <Link to="/login">
             <h2 className="bg-amber-500 rounded-full font-medium text-white py-2 px-4 hover:bg-amber-600 transition">LOGIN</h2>
             </Link>
-             <Link to="/">
+             <Link to="/register">
             <h2 className="bg-amber-500 rounded-full font-medium text-white py-2 px-4 hover:bg-amber-600 transition">REGISTER</h2>
             </Link>
         </div>

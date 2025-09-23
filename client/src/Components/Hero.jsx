@@ -4,7 +4,7 @@ import heroTwo from "../assets/hero-2.jpg"
 import heroVideo from "../assets/hero-video.mp4"
 const Hero = () => {
   return (
-    <div className="grid grid-cols-2 gap-7 px-40">
+    <div className="grid grid-cols-2 gap-7 px-40 mb-30">
       <div >
         <p className="text-2xl bg-amber-500 w-70 px-3 font-bold text-center rounded-full text-white py-2 mb-5">Know before you go</p>
         <p className=" text-6xl">Travelling opens the</p>

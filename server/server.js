@@ -15,6 +15,9 @@ const connectDB = async() =>{
         console.log("Error")
     }
 }
+// Middleware to parse JSON request bodies
+app.use(express.json());
+
 
 connectDB().then(()=>{
     app.listen(port, ()=>{

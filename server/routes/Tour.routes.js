@@ -1,5 +1,5 @@
 import express from "express"
-import { createTour, deleteTourData, getAllTour } from "../controller/Tour.controller.js";
+import { createTour, deleteTourData, getAllTour, getSingleTourById } from "../controller/Tour.controller.js";
 
 
 const route = express.Router();
@@ -13,4 +13,6 @@ route.get("/getalltour", getAllTour)
 //http://localhost:3000/worldtour/deletetour/id
 route.delete("/deletetour/:id", deleteTourData)
 
+//http://localhost:3000/worldtour/getsingletour/id
+route.get("/getsingletour/:id", getSingleTourById)
 export default route

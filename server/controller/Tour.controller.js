@@ -37,12 +37,10 @@ export const createTour = async (req, res, next) => {
       .status(200)
       .json({ success: true, message: "tour data added successfully" });
   } catch (error) {
-    return res
-      .status(500)
-      .json({
-        success: false,
-        message: "internal server error, tour data was not added",
-      });
+    return res.status(500).json({
+      success: false,
+      message: "internal server error, tour data was not added",
+    });
   }
 };
 
@@ -57,13 +55,13 @@ export const getAllTour = async (req, res, next) => {
   }
 };
 
-export const deleteTourData = async (req , res , next)=>{
-const tourId = req.params.id
- try {
+export const deleteTourData = async (req, res, next) => {
+  const tourId = req.params.id;
+  try {
     if (!mongoose.Types.ObjectId.isValid(tourId)) {
       return res.status(400).json({ success: false, message: "Invalid Id" });
     }
-    const tour = await Tour.findById(tourId); 
+    const tour = await Tour.findById(tourId);
     if (!tour) {
       return res
         .status(404)
@@ -78,4 +76,27 @@ const tourId = req.params.id
       .status(500)
       .json({ success: false, message: "server error...!" });
   }
-}
+};
+
+export const getSingleTourById = async (req, res, next) => {
+  const tourId = req.params.id;
+
+  try {
+    if (!mongoose.Types.ObjectId.isValid(tourId)) {
+      return res.status(400).json({ success: false, message: "Invalid Id" });
+    }
+    const tour = await Tour.findById(tourId);
+    if (!tour) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Tour not found with this id" });
+    }
+    return res
+      .status(200)
+      .json({ success: true, message: "Tour found...!", data: tour });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ success: false, message: "server error...!" });
+  }
+};

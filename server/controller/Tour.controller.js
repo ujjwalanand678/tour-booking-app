@@ -100,3 +100,24 @@ export const getSingleTourById = async (req, res, next) => {
       .json({ success: false, message: "server error...!" });
   }
 };
+
+export const getToursByQuery = async (req, res, next) => {
+  const reqTitle = req.query.title;
+
+  try {
+    const tour = await Tour.find({ title: new RegExp(reqTitle, "i") });
+    if (!tour || tour.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: `No tours found with title:${reqTitle}`,
+      });
+    }
+    return res
+      .status(200)
+      .json({ success: true, message: "tours found...", data: tour });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server Error...." });
+  }
+};

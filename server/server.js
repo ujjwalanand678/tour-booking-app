@@ -1,7 +1,7 @@
 import express from "express"
 import dotenv from "dotenv"
 import mongoose, { Mongoose } from "mongoose"
-import TourRoutes from "./routes/Tour.routes"
+import TourRoutes from "./routes/Tour.routes.js"
 
 const app = express()
 dotenv.config() 

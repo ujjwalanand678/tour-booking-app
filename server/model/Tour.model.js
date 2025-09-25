@@ -26,7 +26,7 @@ const tourSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  desc: {
+  description: {
     type: String,
     required: true,
   },
@@ -38,17 +38,17 @@ const tourSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
-  // ratings
-  //   avgRating: {
-  //     type: Number,
-  //     default: 0, // starts at 0, gets updated as reviews come in
-  //     min: 0,
-  //     max: 5
-  //   },
-  //   numReviews: {
-  //     type: Number,
-  //     default: 0
-  //   },
+
+  avgRating: {
+    type: Number,
+    default: 0, // starts at 0, gets updated as reviews come in
+    min: 0,
+    max: 5,
+  },
+  numReviews: {
+    type: Number,
+    default: 0,
+  },
 
   //   reviews: [
   //     { type: mongoose.Schema.Types.ObjectId,

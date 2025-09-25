@@ -1,5 +1,5 @@
 import express from "express"
-import { createTour } from "../controller/Booking.controller";
+import { createTour } from "../controller/Tour.controller.js";
 
 
 const route = express.Router();

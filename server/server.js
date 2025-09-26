@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import mongoose, { Mongoose } from "mongoose"
 import TourRoutes from "./routes/Tour.routes.js"
 import AuthRoutes from "./routes/Auth.routes.js"
+import UserRoutes from "./routes/User.routes.js"
 
 const app = express()
 dotenv.config() 
@@ -21,6 +22,7 @@ const connectDB = async() =>{
 app.use(express.json());
 app.use("/worldtour" , TourRoutes)
 app.use("/worldtour/auth" , AuthRoutes)
+app.use("/worldtour/user" , UserRoutes)
 
 
 connectDB().then(()=>{

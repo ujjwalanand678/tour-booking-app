@@ -20,7 +20,7 @@ const UserSchema = new mongoose.Schema({
     enum : ["user", "admin"], // Role can only be either "user" or "admin"
     default : "user", // Default role is "user"
   },
-  profilePic : String, // Profile picture URL is optional
+
 //   user : {
 //           id : {
 //               type : mongoose.Schema.Types.ObjectId,

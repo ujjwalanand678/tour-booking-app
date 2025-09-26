@@ -16,7 +16,10 @@ export const userRegister = async (req, res, next) => {
         });
     }
     //password encryption
-    user= new User({name, email, password, role})
+    const salt = await bcrypt.genSalt(10)
+    const hashing = await bcrypt.hash(password , salt)
+
+    user= new User({name, email, password : hashing, role})
     await user.save()
      return res
       .status(200)

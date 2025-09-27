@@ -27,7 +27,7 @@ export const bookingTour = async (req, res, next) => {
     });
 
     await newBooking.save();
-    return res.status(200).json({ success: true, message: "Booking done" });
+    return res.status(200).json({ success: true, message: "Booking done" , data: newBooking});
   } catch (error) {
     return res.status(500).json({
       success: false,
@@ -54,12 +54,12 @@ export const getAllBookings = async (req, res) => {
 
 //  Get single booking with tour details
 export const getSingleBooking = async (req, res) => {
-  const tourId = req.params.id;
+  const bookingId  = req.params.id;
   try {
-    if (!mongoose.Types.ObjectId.isValid(tourId)) {
+    if (!mongoose.Types.ObjectId.isValid(bookingId )) {
       return res.status(400).json({ success: false, message: "Invalid Id" });
     }
-    const booking = await Booking.findById(tourId).populate(
+    const booking = await Booking.findById(bookingId ).populate(
       "tour",
       "title city price"
     );

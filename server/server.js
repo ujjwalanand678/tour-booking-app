@@ -5,6 +5,7 @@ import TourRoutes from "./routes/Tour.routes.js"
 import AuthRoutes from "./routes/Auth.routes.js"
 import UserRoutes from "./routes/User.routes.js"
 import BookingRoutes from "./routes/Booking.routes.js"
+import ReviewRoutes from "./routes/Review.routes.js"
 
 const app = express()
 dotenv.config() 
@@ -25,6 +26,8 @@ app.use("/worldtour" , TourRoutes)
 app.use("/worldtour/auth" , AuthRoutes)
 app.use("/worldtour/user" , UserRoutes)
 app.use("/worldtour/booking" , BookingRoutes)
+app.use("/worldtour/review" , ReviewRoutes)
+
 
 
 

@@ -12,8 +12,7 @@ export const createTour = async (req, res, next) => {
     description,
     photo,
     featured,
-    avgRating,
-    numReviews,
+    
   } = req.body;
 
   try {
@@ -26,9 +25,8 @@ export const createTour = async (req, res, next) => {
       maxGroupSize,
       description,
       photo,
-      featured,
-      avgRating,
-      numReviews,
+      featured
+     
     });
 
     await data.save();

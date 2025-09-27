@@ -17,13 +17,19 @@ export const updateUser = async (req, res, next) => {
     }
     // Check if the user is trying to update their own profile
     //user._id is comming from the database and userId is coming from the params.
-    if (user._id.toString() !== userId) {
-      return res
-        .status(403)
-        .json({
-          success: false,
-          message: "You are not authorized to edit this blog",
-        });
+      // Ensure only the logged-in user can update their profile
+       if (req.user?.id !== userId) {
+      return res.status(403).json({
+        success: false,
+        message: "You are not authorized to update this profile",
+      });
+    // if (user._id.toString() !== userId) {
+    //   return res
+    //     .status(403)
+    //     .json({
+    //       success: false,
+    //       message: "You are not authorized to edit this blog",
+    //     });
     }
 
     const updatedUser = await User.findByIdAndUpdate(
@@ -34,7 +40,7 @@ export const updateUser = async (req, res, next) => {
     
     return res
       .status(200)
-      .json({ success: true, message: "User updated successfully" });
+      .json({ success: true, message: "User updated successfully" , data: updatedUser,});
   } catch (error) {
     return res
       .status(500)

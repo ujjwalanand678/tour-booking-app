@@ -22,11 +22,16 @@ const connectDB = async() =>{
 }
 // Middleware to parse JSON request bodies
 app.use(express.json());
-app.use("/worldtour" , TourRoutes)
-app.use("/worldtour/auth" , AuthRoutes)
-app.use("/worldtour/user" , UserRoutes)
-app.use("/worldtour/booking" , BookingRoutes)
-app.use("/worldtour/review" , ReviewRoutes)
+app.use("/worldtour" , TourRoutes) // postman check done
+app.use("/worldtour/auth" , AuthRoutes) // postman check done
+app.use("/worldtour/user" , UserRoutes) // postman check done
+app.use("/worldtour/booking" , BookingRoutes) // postman check done
+
+// app.use((req, res, next) => {
+//   console.log("Incoming request:", req.method, req.url);
+//   next();
+// });
+app.use("/worldtour/review" , ReviewRoutes) //
 
 
 

@@ -1,10 +1,17 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
-const reviewSchema =  new mongoose.Schema({
-  name: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-    required: true,
+const reviewSchema = new mongoose.Schema({
+  user: {
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    name: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
   },
   tour: {
     type: mongoose.Schema.Types.ObjectId,
@@ -24,8 +31,8 @@ const reviewSchema =  new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
-  }
-}) 
+  },
+});
 
-const Review = mongoose.model("Review", reviewSchema)
-export default Review
+const Review = mongoose.model("Review", reviewSchema);
+export default Review;

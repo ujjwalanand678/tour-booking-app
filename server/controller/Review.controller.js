@@ -6,6 +6,7 @@ import mongoose from "mongoose";
 export const createReview = async (req, res) => {
   const { tour, rating, comment } = req.body;
   const userId = req.userId; // from authorize middleware
+  const userName = req.name; // from authorize middleware
 
   try {
     // Validate tour ID
@@ -32,8 +33,7 @@ export const createReview = async (req, res) => {
 
     // Create review
     const review = new Review({
-      
-      user: userId,
+      user: { id: userId, name: userName },
       tour,
       rating,
       comment,

@@ -1,6 +1,58 @@
 import mongoose from "mongoose";
-// import Tour from "../model/Tour.model.js"
+import Booking from "../model/Booking.model.js";
 
-// export const createTour = async (req, res, next)=>{
-// console.log("tour created")
-// }
+//create booking
+export const bookingTour = async (req, res, next) => {
+  try {
+    const {  tour,fullName, phone, date, numberOfPeople, totalPrice } =
+      req.body;
+
+    const newBooking = new Booking({
+    tour,
+      fullName,
+      phone,
+      date,
+      numberOfPeople,
+      totalPrice,
+    });
+
+    await newBooking.save()
+    return res.status(200).json({success:true , message: "Booking done"})
+  } catch (error) {
+    return res.status(500).json({success:false , message:"Internal server error. Booking cannot be done at this moment.please try again later."})
+  }
+};
+
+//  Get all bookings with tour details
+export const getAllBookings = async (req, res) => {
+  try {
+    const bookings = await Booking.find().populate("tour", "title city price");
+
+    res.status(200).json({ success: true, message: "all the bookings found", data: bookings });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Internal server error"});
+  }
+};
+
+//  Get single booking with tour details
+export const getSingleBooking = async (req, res) => {
+    const tourId = req.params.id;
+  try {
+     if (!mongoose.Types.ObjectId.isValid(tourId)) {
+      return res.status(400).json({ success: false, message: "Invalid Id" });}
+    const booking = await Booking.findById(tourId).populate(
+      "tour",
+      "title city price"
+    );
+
+    if (!booking) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Booking not found" });
+    }
+
+    res.status(200).json({ success: true, message: "Booking found", data: booking });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+};

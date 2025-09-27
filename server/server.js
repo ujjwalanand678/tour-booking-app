@@ -4,6 +4,7 @@ import mongoose, { Mongoose } from "mongoose"
 import TourRoutes from "./routes/Tour.routes.js"
 import AuthRoutes from "./routes/Auth.routes.js"
 import UserRoutes from "./routes/User.routes.js"
+import BookingRoutes from "./routes/Booking.routes.js"
 
 const app = express()
 dotenv.config() 
@@ -23,6 +24,8 @@ app.use(express.json());
 app.use("/worldtour" , TourRoutes)
 app.use("/worldtour/auth" , AuthRoutes)
 app.use("/worldtour/user" , UserRoutes)
+app.use("/worldtour/booking" , BookingRoutes)
+
 
 
 connectDB().then(()=>{

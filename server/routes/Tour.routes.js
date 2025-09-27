@@ -1,5 +1,7 @@
 import express from "express"
 import { createTour, deleteTourData, getAllTour, getSingleTourById, getToursByQuery } from "../controller/Tour.controller.js";
+import { authorize } from "../authentication/VerifyToken.js";
+
 
 
 const route = express.Router();
@@ -18,5 +20,7 @@ route.get("/getsingletour/:id", getSingleTourById)
 
 //http://localhost:3000/worldtour/gettourbyquery/?title=Bridge
 route.get("/gettourbyquery" , getToursByQuery)
+
+
 
 export default route

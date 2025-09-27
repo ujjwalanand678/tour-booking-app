@@ -1,33 +1,49 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
 const bookingSchema = new mongoose.Schema({
-fullName :{
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  tour: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Tour",
+    required: true,
+  },
+  fullName: {
     type: String,
-    required :true,
-},
-phone :{
+    required: true,
+  },
+  phone: {
     type: Number,
-    required:true
-},
-date:{
+    required: true,
+  },
+  date: {
     type: Date,
-    required: true
-},
+    required: true,
+  },
   numberOfPeople: {
     type: Number,
     required: true,
     min: 1,
   },
-//   tour: {
-//     type: mongoose.Schema.Types.ObjectId,
-//     ref: "Tour", // relation to another model
-//     required: true,
-//   },
+  //   tour: {
+  //     type: mongoose.Schema.Types.ObjectId,
+  //     ref: "Tour", // relation to another model
+  //     required: true,
+  //   },
   totalPrice: {
     type: Number,
     required: true,
-  }
-})
+  },
+    //  connect booking to tour
+  tour: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Tour",
+    required: true,
+  },
+});
 
-const Booking = mongoose.model("Booking" , bookingSchema)
-export default Booking
+const Booking = mongoose.model("Booking", bookingSchema);
+export default Booking;

@@ -50,11 +50,7 @@ const tourSchema = new mongoose.Schema({
     default: 0,
   },
 
-    reviews: [
-      { type: mongoose.Schema.Types.ObjectId,
-  ref: "Review" }
-    ],
- 
+  reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: "Review" }],
 });
 
 const Tour = mongoose.model("Tour", tourSchema);

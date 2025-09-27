@@ -4,6 +4,8 @@ import Tour from "../model/Tour.model.js";
 
 //create booking
 export const bookingTour = async (req, res, next) => {
+  const userId = req.userId; // Assuming the user ID is available in req.user.id after authorization middleware
+ 
   try {
     const { tour, fullName, phone, date, numberOfPeople } = req.body;
 
@@ -18,6 +20,7 @@ export const bookingTour = async (req, res, next) => {
     const totalPrice = tourData.price * numberOfPeople;
 
     const newBooking = new Booking({
+      user : {id :userId},
       tour,
       fullName,
       phone,
@@ -27,8 +30,11 @@ export const bookingTour = async (req, res, next) => {
     });
 
     await newBooking.save();
-    return res.status(200).json({ success: true, message: "Booking done" , data: newBooking});
+    return res
+      .status(200)
+      .json({ success: true, message: "Booking done", data: newBooking });
   } catch (error) {
+    console.error(error);
     return res.status(500).json({
       success: false,
       message:
@@ -40,8 +46,8 @@ export const bookingTour = async (req, res, next) => {
 //  Get all bookings with tour details
 export const getAllBookings = async (req, res) => {
   try {
-    const bookings = await Booking.find().populate("tour", "title city price");
-
+    const bookings = await Booking.find();
+console.log(bookings);
     res.status(200).json({
       success: true,
       message: "all the bookings found",
@@ -54,12 +60,12 @@ export const getAllBookings = async (req, res) => {
 
 //  Get single booking with tour details
 export const getSingleBooking = async (req, res) => {
-  const bookingId  = req.params.id;
+  const bookingId = req.params.id;
   try {
-    if (!mongoose.Types.ObjectId.isValid(bookingId )) {
+    if (!mongoose.Types.ObjectId.isValid(bookingId)) {
       return res.status(400).json({ success: false, message: "Invalid Id" });
     }
-    const booking = await Booking.findById(bookingId ).populate(
+    const booking = await Booking.findById(bookingId).populate(
       "tour",
       "title city price"
     );

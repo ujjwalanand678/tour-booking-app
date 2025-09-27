@@ -2,15 +2,13 @@ import mongoose from "mongoose";
 
 const bookingSchema = new mongoose.Schema({
   user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-    required: true,
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
   },
-  tour: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Tour",
-    required: true,
-  },
+
   fullName: {
     type: String,
     required: true,
@@ -28,16 +26,11 @@ const bookingSchema = new mongoose.Schema({
     required: true,
     min: 1,
   },
-  //   tour: {
-  //     type: mongoose.Schema.Types.ObjectId,
-  //     ref: "Tour", // relation to another model
-  //     required: true,
-  //   },
   totalPrice: {
     type: Number,
     required: true,
   },
-    //  connect booking to tour
+  //  connect booking to tour
   tour: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Tour",

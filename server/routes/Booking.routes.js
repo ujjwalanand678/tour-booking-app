@@ -9,8 +9,8 @@ const route = express.Router()
 route.post("/tourbooking",authorize, bookingTour)
 
 //http://localhost:3000/worldtour/booking/getallbooking
-route.post("/getallbooking",authorize, getAllBookings)
+route.get("/getallbooking",authorize, getAllBookings)
 
 //http://localhost:3000/worldtour/booking/getsinglebooking
-route.post("/getsinglebooking",authorize, getSingleBooking)
+route.get("/getsinglebooking",authorize, getSingleBooking)
 export default route

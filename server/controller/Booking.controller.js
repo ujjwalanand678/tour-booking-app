@@ -58,28 +58,4 @@ export const getAllBookings = async (req, res) => {
   }
 };
 
-//  Get single booking with tour details
-export const getSingleBooking = async (req, res) => {
-  const bookingId = req.params.id;
-  try {
-    if (!mongoose.Types.ObjectId.isValid(bookingId)) {
-      return res.status(400).json({ success: false, message: "Invalid Id" });
-    }
-    const booking = await Booking.findById(bookingId).populate(
-      "tour",
-      "title city price"
-    );
 
-    if (!booking) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Booking not found" });
-    }
-
-    res
-      .status(200)
-      .json({ success: true, message: "Booking found", data: booking });
-  } catch (err) {
-    res.status(500).json({ success: false, message: "Internal server error" });
-  }
-};

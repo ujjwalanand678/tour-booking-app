@@ -11,6 +11,5 @@ route.post("/tourbooking",authorize, bookingTour)
 //http://localhost:3000/worldtour/booking/getallbooking
 route.get("/getallbooking",authorize, getAllBookings)
 
-//http://localhost:3000/worldtour/booking/getsinglebooking
-route.get("/getsinglebooking",authorize, getSingleBooking)
+
 export default route

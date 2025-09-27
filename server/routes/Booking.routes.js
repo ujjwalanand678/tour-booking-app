@@ -1,5 +1,5 @@
 import express from "express"
-import { bookingTour, getAllBookings, getSingleBooking } from "../controller/Booking.controller.js";
+import { bookingTour, getAllBookings } from "../controller/Booking.controller.js";
 import { authorize } from "../authentication/VerifyToken.js";
 
 const route = express.Router()

@@ -46,8 +46,8 @@ export const bookingTour = async (req, res, next) => {
 //  Get all bookings with tour details
 export const getAllBookings = async (req, res) => {
   try {
-    const bookings = await Booking.find();
-console.log(bookings);
+    const bookings = await Booking.find().populate("tour", "title city price");
+
     res.status(200).json({
       success: true,
       message: "all the bookings found",

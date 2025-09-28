@@ -4,26 +4,26 @@ import mongoose from "mongoose";
 
 // Create a new review
 export const createReview = async (req, res) => {
-  const { tour, rating, comment } = req.body;
+  const { tour, rating, comment } = req.body; // tour is tour id to which review is to be added 
   const userId = req.userId; // from authorize middleware
   const userName = req.name; // from authorize middleware
 
   try {
-    // Validate tour ID
+    // Validate tour ID . check if the id received is a valid mongoose id or not.
     if (!mongoose.Types.ObjectId.isValid(tour)) {
       return res
         .status(400)
         .json({ success: false, message: "Invalid tour ID" });
     }
 
-    const tourDoc = await Tour.findById(tour);
+    const tourDoc = await Tour.findById(tour); // Check if tour exists or not in the database.
     if (!tourDoc) {
       return res
         .status(404)
         .json({ success: false, message: "Tour not found" });
     }
 
-    // Prevent duplicate reviews by same user
+    // Prevent duplicate reviews by same user. A user can review a tour only once.
     const existingReview = await Review.findOne({ tour, user: userId });
     if (existingReview) {
       return res
@@ -31,7 +31,7 @@ export const createReview = async (req, res) => {
         .json({ success: false, message: "You already reviewed this tour" });
     }
 
-    // Create review
+    // Create review and associate with user and tour . Save review to DB.
     const review = new Review({
       user: { id: userId, name: userName },
       tour,
@@ -41,11 +41,17 @@ export const createReview = async (req, res) => {
 
     await review.save();
 
-    // Add review to tour and update ratings
-    tourDoc.reviews.push(review._id);
-    tourDoc.numReviews = tourDoc.reviews.length;
+    // Add review to tour and update ratings stats  in Tour model.
+    // Each tour document has an array of review IDs, number of reviews, and average rating.
+    // When a new review is added, we push the review ID to the array, increment numReviews,
+    // and recalculate avgRating based on all reviews for that tour.
+    tourDoc.reviews.push(review._id); // add review id to reviews array in tour document
+    tourDoc.numReviews = tourDoc.reviews.length; // update number of reviews
 
-    const allReviews = await Review.find({ tour });
+    // Recalculate average rating based on all reviews for this tour in the Review collection.
+    // This ensures avgRating is always accurate even if reviews are added/deleted.
+    const allReviews = await Review.find({ tour }); // get all reviews for this tour from Review collection 
+    // calculate new average rating by using reduce method to sum up all ratings and dividing by number of reviews
     tourDoc.avgRating =
       allReviews.reduce((sum, r) => sum + r.rating, 0) / allReviews.length;
 

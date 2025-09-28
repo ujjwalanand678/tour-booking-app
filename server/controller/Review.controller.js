@@ -7,7 +7,9 @@ export const createReview = async (req, res) => {
   const { tour, rating, comment } = req.body;
   const userId = req.userId; // from authorize middleware
   const userName = req.name; // from authorize middleware
-
+console.log("User ID:", userId);
+  console.log("User Name:", userName);
+  console.log("Request Body:", req.body);
   try {
     // Validate tour ID
     if (!mongoose.Types.ObjectId.isValid(tour)) {

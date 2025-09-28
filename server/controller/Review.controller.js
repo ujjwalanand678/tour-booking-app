@@ -83,7 +83,7 @@ export const getTourReviews = async (req, res) => {
     }
 
     const reviews = await Review.find({ tour: tourId })
-      .populate("user", "name email") // populate user info
+      .populate("user", "name") // populate user info
       .sort({ createdAt: -1 });
 
     return res.status(200).json({
@@ -103,8 +103,9 @@ export const getTourReviews = async (req, res) => {
 // Delete a review
 export const deleteReview = async (req, res) => {
   const reviewId = req.params.id;
-  const userId = req.userId;
+ const userId = req.userId;
   const role = req.role;
+
 
   try {
     if (!mongoose.Types.ObjectId.isValid(reviewId)) {

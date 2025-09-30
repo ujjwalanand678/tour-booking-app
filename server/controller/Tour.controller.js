@@ -53,6 +53,28 @@ export const getAllTour = async (req, res, next) => {
   }
 };
 
+export const getTourPagination = async (req, res, next) => {
+  try {
+    const {page = 1, limit= 8} = req.query;
+      const options = {
+      page: parseInt(page),
+      limit: parseInt(limit),
+    };
+
+    const result = await Tour.paginate({}, options);
+     res.status(200).json({
+      success: true,
+      message: "Tours fetched successfully",
+      data: result.docs,
+      totalPages: result.totalPages,
+      currentPage: result.page,
+      totalTours: result.totalDocs,
+    });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: "Server error..." });
+  }
+};
+
 export const deleteTourData = async (req, res, next) => {
   const tourId = req.params.id;
   try {

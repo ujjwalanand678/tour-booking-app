@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import mongoosePaginate from "mongoose-paginate-v2";
 const tourSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -53,6 +53,8 @@ const tourSchema = new mongoose.Schema({
   reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: "Review" }],
 });
 
+// Add pagination plugin
+tourSchema.plugin(mongoosePaginate);
 const Tour = mongoose.model("Tour", tourSchema);
 export default Tour;
 

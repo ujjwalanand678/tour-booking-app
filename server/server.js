@@ -6,6 +6,7 @@ import AuthRoutes from "./routes/Auth.routes.js"
 import UserRoutes from "./routes/User.routes.js"
 import BookingRoutes from "./routes/Booking.routes.js"
 import ReviewRoutes from "./routes/Review.routes.js"
+import cors from "cors"
 
 const app = express()
 dotenv.config() 
@@ -20,7 +21,20 @@ const connectDB = async() =>{
         console.log("Error")
     }
 }
+
+
+//cors policy error handle
+ const corsPolicy ={
+    // origin : "*",
+    origin : ["http://localhost:5173"],
+    Credentials : true,
+    methods : ["GET" , "POST" , "PUT" , "DELETE"],
+    allowedHeaders : ["Content-Type" , "Authorization"],
+    exposedHeaders : ["Content-Type"]
+ }
+
 // Middleware to parse JSON request bodies
+app.use(cors(corsPolicy))
 app.use(express.json());
 app.use("/worldtour" , TourRoutes) // postman check done
 app.use("/worldtour/auth" , AuthRoutes) // postman check done

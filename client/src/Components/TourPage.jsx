@@ -3,6 +3,7 @@ import TourPageBanner from "./TourPageBanner";
 import Search from "./Search";
 import Footer from "./Footer";
 import Subscribe from "./Subscribe";
+import AllTourDB from "./AllTourDB";
 
 
 const TourPage = () => {
@@ -10,7 +11,7 @@ const TourPage = () => {
   <div>
     <TourPageBanner/>
     <Search />
-
+    <AllTourDB/>
     <Subscribe/>
     <Footer/>
     

@@ -10,7 +10,7 @@ const ClientLove = () => {
          <p className="bg-amber-500 w-40 py-2 font-medium text-lg rounded-full text-center mb-5 text-white">
           Clients Love
         </p>
-          <h3 className="text-4xl font-medium mb-5">
+          <h3 className="text-4xl font-medium mb-10">
          What our clients say about us
         </h3>
     

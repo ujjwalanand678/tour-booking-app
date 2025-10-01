@@ -7,6 +7,7 @@ import Gallary from "./Gallary";
 import Subscribe from "./Subscribe";
 import Footer from "./Footer";
 import Search from "./Search";
+import AllTourDB from "./AllTourDB";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
     <Hero/> 
     <Search/>
     <WhatWeServe/>
+    <AllTourDB/>
     <Experience/>
     <Gallary/>
     <ClientLove/>

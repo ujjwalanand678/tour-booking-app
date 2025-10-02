@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { MdSearch } from "react-icons/md";
 import { LuMapPin } from "react-icons/lu";
 import { LuMapPinPlusInside } from "react-icons/lu";
 import { FaUserFriends } from "react-icons/fa";
 const Search = () => {
+    const [input, setInput] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+  };
   return (
   <div className="mx-40 mb-40">
         <div className="w-full flex justify-center">
-      <div className="flex items-center bg-white rounded-full shadow-xl/20  px-6 py-8 space-x-16 ">
+      <form onSubmit={handleSubmit} className="flex items-center bg-white rounded-full shadow-xl/20  px-6 py-8 space-x-16 ">
         {/* Location */}
         <div className="flex items-center space-x-3">
           <LuMapPin className="text-red-400 "  size={25}/>
@@ -17,6 +22,8 @@ const Search = () => {
               type="text"
               placeholder="Where are you going ?"
               className="outline-none text-gray-500 placeholder-gray-400 text-lg w-50"
+               onChange={(e) => setInput(e.target.value)}
+               value={input}
             />
           </div>
         </div>
@@ -55,10 +62,10 @@ const Search = () => {
         </div>
 
         {/* Search Button */}
-        <button className="ml-4 bg-orange-400 text-white p-3 rounded-xl hover:bg-orange-500 transition">
+        <button type="submit" className="ml-4 bg-orange-400 text-white p-3 rounded-xl hover:bg-orange-500 transition">
           <MdSearch size={25} className="cursor-pointer"/>
         </button>
-      </div>
+      </form>
     </div>
   </div>);
 };

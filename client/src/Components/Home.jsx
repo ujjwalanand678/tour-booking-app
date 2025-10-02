@@ -8,15 +8,19 @@ import Subscribe from "./Subscribe";
 import Footer from "./Footer";
 import Search from "./Search";
 import AllTourDB from "./AllTourDB";
+import { ToastContainer } from "react-toastify";
+
 
 const Home = () => {
   return (
   
   <div className=" pt-30">
+    <ToastContainer position="top-center" autoClose={3000} />
+
     <Hero/> 
     <Search/>
     <WhatWeServe/>
-    <AllTourDB/>
+    <AllTourDB />
     <Experience/>
     <Gallary/>
     <ClientLove/>

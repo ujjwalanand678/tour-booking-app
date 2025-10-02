@@ -10,7 +10,7 @@ const TourPage = () => {
   return (
   <div>
     <TourPageBanner/>
-    <Search />
+    {/* <Search /> */}
     <AllTourDB/>
     <Subscribe/>
     <Footer/>

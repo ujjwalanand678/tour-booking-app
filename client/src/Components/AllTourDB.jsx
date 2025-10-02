@@ -3,6 +3,7 @@ import { BASE_URL } from "../utils/ConfigBaseURL";
 import { FaRegStar } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 
+
 const AllTourDB = () => {
   const [tourData, setTourData] = useState([]);
 
@@ -18,6 +19,7 @@ const AllTourDB = () => {
 
   return (
     <div className="mx-40 mb-30">
+    
        <p className="bg-amber-500 w-40 py-2 font-medium text-lg rounded-full text-center mb-5 text-white">
           Explore
         </p>
@@ -72,7 +74,7 @@ const AllTourDB = () => {
                 </p>
 
                 {/* Button */}
-                <button className="cursor-pointer w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 rounded-lg">
+                <button className="cursor-pointer w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 rounded-lg">
                   Book Now
                 </button>
               </div>

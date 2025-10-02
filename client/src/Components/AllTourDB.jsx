@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../utils/ConfigBaseURL";
 import { FaRegStar } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 
 const AllTourDB = () => {
@@ -74,9 +75,11 @@ const AllTourDB = () => {
                 </p>
 
                 {/* Button */}
+                <Link to={`/singletour/${tour._id}`}>
                 <button className="cursor-pointer w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 rounded-lg">
                   Book Now
                 </button>
+                </Link >
               </div>
             </div>
           ))}

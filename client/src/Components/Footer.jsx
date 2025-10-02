@@ -1,5 +1,6 @@
 import React from "react";
 import travel from "../assets/travel-3.png"
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
@@ -13,25 +14,25 @@ const Footer = () => {
       <div>
         <ul className="">
           <li className="font-bold text-2xl leading-16">Discover</li>
-          <li className="text-xl leading-12">Home</li>
-          <li className="text-xl leading-12">About</li>
-          <li className="text-xl leading-12">Tours</li>
+          <Link to="/"><li className="text-xl leading-12">Home</li></Link>
+          <Link to="/about"><li className="text-xl leading-12">About</li></Link>
+          <Link to="/tour"><li className="text-xl leading-12">Tours</li></Link>
         </ul>
       </div>
       <div>
         <ul className="">
           <li className="font-bold text-2xl leading-16">Quick Links</li>
-          <li className="text-xl leading-12">Gallery</li>
-          <li className="text-xl leading-12">Login</li>
-          <li className="text-xl leading-12">Register</li>
+          <Link to="/"><li className="text-xl leading-12">Gallery</li></Link>
+          <Link to="/login"><li className="text-xl leading-12">Login</li></Link>
+          <Link to="/register"><li className="text-xl leading-12">Register</li></Link>
         </ul>
       </div>
       <div>
         <ul className="">
           <li className="font-bold text-2xl leading-16">Contact</li>
-          <li className="text-xl leading-12">Address:</li>
-          <li className="text-xl leading-12">Email:</li>
-          <li className="text-xl leading-12">Phone:</li>
+          <li className="text-xl leading-12">Address: Patna, Bihar</li>
+          <li className="text-xl leading-12">Email: ujjwalanand678@gmail.com</li>
+          <li className="text-xl leading-12">Phone: +91 7903972407</li>
         </ul>
       </div>
       

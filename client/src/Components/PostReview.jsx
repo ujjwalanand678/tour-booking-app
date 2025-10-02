@@ -67,7 +67,7 @@ const PostReview = () => {
   }, [id]);
 
   return (
-    <div className="max-w-lg mx-auto bg-white shadow-md rounded-lg p-6 mt-6">
+    <div className="ms-40 w-full bg-white shadow-xl rounded-xl mt-10 p-6 mb-10">
       <h2 className="text-lg font-semibold mb-4">
         Reviews ({reviews.length} reviews)
       </h2>

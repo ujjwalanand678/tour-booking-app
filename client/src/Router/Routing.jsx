@@ -5,7 +5,7 @@ import About from "../Components/About";
 import Register from "../Components/Register";
 import Login from "../Components/Login";
 import TourPage from "../Components/TourPage";
-import TourBooking from "../Components/TourBooking";
+import TourBookingPage from "../Components/TourBookingPage";
 
 const Routing = () => {
   return (
@@ -15,7 +15,7 @@ const Routing = () => {
 <Route path="/tour" element={<TourPage/>}/>
 <Route path="/login" element={<Login/>}/>
 <Route path="/register" element={<Register/>}/>
-<Route path="/singletour/:id" element={<TourBooking/>}/>
+<Route path="/singletour/:id" element={<TourBookingPage/>}/>
 </Routes>
   )
 };

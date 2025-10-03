@@ -6,11 +6,11 @@ const Hero = () => {
   return (
     <div className="grid grid-cols-2 gap-7 px-40 mb-30">
       <div >
-        <p className="text-2xl bg-amber-500 w-70 px-3 font-bold text-center rounded-full text-white py-2 mb-5">Know before you go</p>
-        <p className=" text-6xl">Travelling opens the</p>
-        <p className=" text-6xl">doors to creating</p>
-        <p className="text-amber-500 text-6xl ">memories</p>
-        <p className="text-2xl leading-11 mt-6 text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequatur dolore nam modi labore facere id ut veniam itaque quasi, sunt unde? Mollitia id soluta animi repudiandae omnis quibusdam illo blanditiis possimus ex sint cupiditate corrupti labore non, qui est porro excepturi quasi labor.</p>
+        <p className="text-xl bg-amber-500 w-70 px-3 font-bold text-center rounded-full text-white py-2 mb-5">Know before you go</p>
+        <p className=" text-2xl">Travelling opens the</p>
+        <p className=" text-2xl">doors to creating</p>
+        <p className="text-amber-500 text-2xl ">memories</p>
+        <p className="text-lg leading-11 mt-6 text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis consequatur dolore nam modi labore facere id ut veniam itaque quasi, sunt unde? Mollitia id soluta animi repudiandae omnis quibusdam illo blanditiis possimus ex sint cupiditate corrupti labore non, qui est porro excepturi quasi labor.</p>
       </div>
       <div className="grid grid-cols-3 gap-6">
         <img src={heroOne} alt="heroImg"  className="rounded-3xl h-110  w-full object-fill border-1 border-amber-500"/>

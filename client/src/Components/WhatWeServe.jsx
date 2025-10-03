@@ -20,8 +20,8 @@ const WhatWeServe = () => {
             className=" object-contain  p-2.5 "
           />
         </div>
-        <h3 className="text-2xl mb-3 font-medium">Calculate weather</h3>
-        <p className="text-gray-700 text-xl">
+        <h3 className="text-xl mb-3 font-medium">Calculate weather</h3>
+        <p className="text-gray-700 text-lg">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo
           aspernatur animi amet velit.
         </p>
@@ -30,8 +30,8 @@ const WhatWeServe = () => {
         <div className="bg-amber-500 w-16 rounded-full mb-3">
           <img src={guide} alt="guide" className=" object-contain  p-2.5 " />
         </div>
-        <h3 className="text-2xl mb-3 font-medium">Best tour guide</h3>
-        <p className="text-gray-700 text-xl">
+        <h3 className="text-xl mb-3 font-medium">Best tour guide</h3>
+        <p className="text-gray-700 text-lg">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo
           aspernatur animi amet velit.
         </p>
@@ -45,8 +45,8 @@ const WhatWeServe = () => {
           />
         </div>
 
-        <h3 className="text-2xl mb-3 font-medium">Customization</h3>
-        <p className="text-gray-700 text-xl">
+        <h3 className="text-xl mb-3 font-medium">Customization</h3>
+        <p className="text-gray-700 text-lg">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo
           aspernatur animi amet velit.
         </p>

@@ -24,7 +24,7 @@ const AllTourDB = () => {
        <p className="bg-amber-500 w-40 py-2 font-medium text-lg rounded-full text-center mb-5 text-white">
           Explore
         </p>
-          <h3 className="text-4xl font-medium mb-10">
+          <h3 className="text-3xl font-medium mb-10">
        Our featured tours
         </h3>
       {tourData?.length === 0 ? (

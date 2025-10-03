@@ -13,7 +13,7 @@ const Gallary = () => {
   return (
   <div className="px-40 mt-25">
     <p className="bg-amber-500 w-30 py-2 font-medium text-lg rounded-full text-center mb-4 text-white">Gallery</p>
-    <p className="text-4xl font-medium mb-10">Visit our customers tour gallery</p>
+    <p className="text-2xl font-medium mb-10">Visit our customers tour gallery</p>
     <div className="grid grid-cols-4 gap-6">
     <img src={gallery_1} alt="gallery_1"  className="rounded-2xl  transform transition-transform duration-300 hover:scale-110"/>
     <img src={gallery_2} alt="gallery_2" className="rounded-2xl  transform transition-transform duration-300 hover:scale-110"/>

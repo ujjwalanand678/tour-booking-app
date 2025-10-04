@@ -1,1 +1,1 @@
-export const BASE_URL = "http://localhost:3000/worldtour"
+export const BASE_URL = "https://tour-booking-app-66f9.onrender.com"

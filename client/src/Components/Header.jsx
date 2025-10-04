@@ -17,19 +17,19 @@ const Header = () => {
         <div className="flex flex-6">
           <img src={travelLogo} alt="logo" className="h-38 relative top-7 " />
         </div>
-        <div className="flex flex-6 text-xl text-slate-800 justify-evenly">
+        <div className="flex flex-6 text-lg text-slate-800 justify-evenly">
           <Link to="/">
-            <h2 className="bg-amber-500 rounded-full font-medium cursor-pointer text-white py-2 px-4 hover:bg-amber-600 transition">
+            <h2 className="bg-amber-500 rounded-full font-bold cursor-pointer text-white py-2 px-4 hover:bg-amber-600 transition">
               HOME
             </h2>
           </Link>
           <Link to="/about">
-            <h2 className="bg-amber-500 rounded-full font-medium cursor-pointer text-white py-2 px-4 hover:bg-amber-600 transition">
+            <h2 className="bg-amber-500 rounded-full font-bold cursor-pointer text-white py-2 px-4 hover:bg-amber-600 transition">
               ABOUT
             </h2>
           </Link>
           <Link to="/tour">
-            <h2 className="bg-amber-500 rounded-full font-medium cursor-pointer text-white py-2 px-4 hover:bg-amber-600 transition">
+            <h2 className="bg-amber-500 rounded-full font-bold cursor-pointer text-white py-2 px-4 hover:bg-amber-600 transition">
               TOUR
             </h2>
           </Link>
@@ -41,7 +41,7 @@ const Header = () => {
               </span>
               <button
                 onClick={handleLogout}
-                className="bg-orange-600 rounded-full font-medium cursor-pointer text-white py-2 px-4 hover:bg-orange-700 transition"
+                className="bg-orange-600 rounded-full font-bold cursor-pointer text-white py-2 px-4 hover:bg-orange-700 transition"
               >
                 LOGOUT
               </button>
@@ -49,12 +49,12 @@ const Header = () => {
           ) : (
             <>
               <Link to="/login">
-                <h2 className="bg-amber-500 cursor-pointer rounded-full font-medium text-white py-2 px-4 hover:bg-amber-600 transition">
+                <h2 className="bg-amber-500 cursor-pointer rounded-full font-bold text-white py-2 px-4 hover:bg-amber-600 transition">
                   LOGIN
                 </h2>
               </Link>
               <Link to="/register">
-                <h2 className="bg-amber-500 cursor-pointer rounded-full font-medium text-white py-2 px-4 hover:bg-amber-600 transition">
+                <h2 className="bg-amber-500 cursor-pointer rounded-full font-bold text-white py-2 px-4 hover:bg-amber-600 transition">
                   REGISTER
                 </h2>
               </Link>

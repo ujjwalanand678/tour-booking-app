@@ -1,13 +1,14 @@
 import React from "react";
 import travel from "../assets/travel-3.png"
 import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <>
     <div className="mx-40 grid grid-cols-4 mt-25  items-center" >
       <div className="px-2">
         <img src={travel} alt="" className="w-40 relative left-5" />
-        <p className="text-gray-700 text-base w-35">
+        <p className="text-gray-700 text-base ">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, natus!
         </p>
       </div>
@@ -30,9 +31,9 @@ const Footer = () => {
       <div>
         <ul className="">
           <li className="font-bold text-lg leading-11">Contact</li>
-          <li className="text-base leading-10">Address: Patna, Bihar</li>
-          <li className="text-base leading-10">Email: ujjwalanand678@gmail.com</li>
-          <li className="text-base leading-10">Phone: +91 7903972407</li>
+          <li className="text-base leading-10"><strong>Address:</strong> Patna, Bihar</li>
+          <li className="text-base leading-10"><strong>Email:</strong> ujjwalanand678@gmail.com</li>
+          <li className="text-base leading-10"><strong>Phone:</strong> +91 7903972407</li>
         </ul>
       </div>
       

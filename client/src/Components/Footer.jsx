@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-    <div className="mx-40 grid grid-cols-4 mt-25 gap-10 items-center" >
-      <div>
+    <div className="mx-40 grid grid-cols-4 mt-25  items-center" >
+      <div className="px-2">
         <img src={travel} alt="" className="w-40 relative left-5" />
-        <p className="text-gray-700 text-base ">
+        <p className="text-gray-700 text-base w-35">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, natus!
         </p>
       </div>

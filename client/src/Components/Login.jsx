@@ -48,7 +48,7 @@ const Login = () => {
 
   return (
     <>
-      <div className=" mx-78 mt-30 w-[60%] mb-40">
+      <div className=" mx-71 mt-30 w-[60%] mb-40">
         <div className="shadow-2xl grid grid-cols-2 gap-0">
           <div>
             <img src={login} alt="login" />

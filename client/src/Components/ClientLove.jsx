@@ -10,13 +10,13 @@ const ClientLove = () => {
          <p className="bg-amber-500 w-40 py-2 font-medium text-lg rounded-full text-center mb-5 text-white">
           Clients Love
         </p>
-          <h3 className="text-2xl font-medium mb-10">
+          <h3 className="text-3xl font-medium mb-10">
          What our clients say about us
         </h3>
     
         <div className="grid grid-cols-3 gap-10">
             <div>
-                <p className="text-base leading-8  text-gray-800 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius corrupti sapiente consequatur, quae obcaecati at hic veritatis commodi eos mollitia minima corporis dolores nesciunt autem doloremque expedita nihil molestiae porro? </p>
+                <p className="text-base   text-gray-800 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius corrupti sapiente consequatur, quae obcaecati at hic veritatis commodi eos mollitia minima corporis dolores nesciunt autem doloremque expedita nihil molestiae porro? </p>
                 <div className="grid grid-cols-3">
                     <img src={customerOne} alt=" customerOne" className="w-25 rounded-lg" />
                     <div>
@@ -26,7 +26,7 @@ const ClientLove = () => {
                 </div>
             </div>
                <div>
-                <p className="text-base leading-8  text-gray-800 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius corrupti sapiente consequatur, quae obcaecati at hic veritatis commodi eos mollitia minima corporis dolores nesciunt autem doloremque expedita nihil molestiae porro? </p>
+                <p className="text-base   text-gray-800 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius corrupti sapiente consequatur, quae obcaecati at hic veritatis commodi eos mollitia minima corporis dolores nesciunt autem doloremque expedita nihil molestiae porro? </p>
                 <div className="grid grid-cols-3">
                     <img src={customerTwo} alt=" customerOne" className="w-25 rounded-lg" />
                     <div>
@@ -36,7 +36,7 @@ const ClientLove = () => {
                 </div>
             </div>
                <div>
-                <p className="text-base leading-8  text-gray-800 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius corrupti sapiente consequatur, quae obcaecati at hic veritatis commodi eos mollitia minima corporis dolores nesciunt autem doloremque expedita nihil molestiae porro? </p>
+                <p className="text-base   text-gray-800 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius corrupti sapiente consequatur, quae obcaecati at hic veritatis commodi eos mollitia minima corporis dolores nesciunt autem doloremque expedita nihil molestiae porro? </p>
                 <div className="grid grid-cols-3">
                     <img src={customerThree} alt=" customerOne" className="w-25 rounded-lg" />
                     <div>

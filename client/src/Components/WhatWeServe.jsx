@@ -10,7 +10,7 @@ const WhatWeServe = () => {
         <p className="bg-amber-500 w-40 py-2 font-medium text-lg rounded-full text-center mb-3 text-white">
           What we serve
         </p>
-        <h3 className="text-4xl font-medium">We offer our best services</h3>
+        <h3 className="text-3xl font-medium">We offer our best services</h3>
       </div>
       <div className=" border-b-1 border-r-1 border-amber-500 rounded-xl p-5">
         <div className="bg-amber-500 w-16 rounded-full mb-3">
@@ -21,7 +21,7 @@ const WhatWeServe = () => {
           />
         </div>
         <h3 className="text-xl mb-3 font-medium">Calculate weather</h3>
-        <p className="text-gray-700 text-lg">
+        <p className="text-gray-700 text-base">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo
           aspernatur animi amet velit.
         </p>
@@ -31,7 +31,7 @@ const WhatWeServe = () => {
           <img src={guide} alt="guide" className=" object-contain  p-2.5 " />
         </div>
         <h3 className="text-xl mb-3 font-medium">Best tour guide</h3>
-        <p className="text-gray-700 text-lg">
+        <p className="text-gray-700 text-base">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo
           aspernatur animi amet velit.
         </p>
@@ -46,7 +46,7 @@ const WhatWeServe = () => {
         </div>
 
         <h3 className="text-xl mb-3 font-medium">Customization</h3>
-        <p className="text-gray-700 text-lg">
+        <p className="text-gray-700 text-base">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo
           aspernatur animi amet velit.
         </p>

@@ -8,10 +8,10 @@ const Experience = () => {
         <p className="bg-amber-500 w-40 py-2 font-medium text-lg rounded-full text-center mb-3 text-white">
           Experience
         </p>
-        <h3 className="text-2xl font-medium w-100 mb-5">
+        <h3 className="text-3xl font-medium w-100 mb-5">
           With our all experience we will serve you
         </h3>
-        <p className="text-gray-700 text-lg mb-12 w-140">
+        <p className="text-gray-700 text-base mb-12 w-130">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis
           iure molestiae dolorem, repellendus blanditiis.
         </p>

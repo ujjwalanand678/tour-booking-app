@@ -4,35 +4,35 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-    <div className="mx-40 grid grid-cols-4 mt-25 gap-10" >
+    <div className="mx-40 grid grid-cols-4 mt-25 gap-10 items-center" >
       <div>
         <img src={travel} alt="" className="w-40 relative left-5" />
-        <p className="text-gray-700 text-lg ">
+        <p className="text-gray-700 text-base ">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, natus!
         </p>
       </div>
       <div>
         <ul className="">
-          <li className="font-bold text-2xl leading-10">Discover</li>
-          <Link to="/"><li className="text-lg leading-10">Home</li></Link>
-          <Link to="/about"><li className="text-lg leading-10">About</li></Link>
-          <Link to="/tour"><li className="text-lg leading-10">Tours</li></Link>
+          <li className="font-bold text-lg leading-11">Discover</li>
+          <Link to="/"><li className="text-base leading-10">Home</li></Link>
+          <Link to="/about"><li className="text-base leading-10">About</li></Link>
+          <Link to="/tour"><li className="text-base leading-10">Tours</li></Link>
         </ul>
       </div>
       <div>
         <ul className="">
-          <li className="font-bold text-2xl leading-10">Quick Links</li>
-          <Link to="/"><li className="text-lg leading-10">Gallery</li></Link>
-          <Link to="/login"><li className="text-lg leading-10">Login</li></Link>
-          <Link to="/register"><li className="text-lg leading-10">Register</li></Link>
+          <li className="font-bold text-lg leading-11">Quick Links</li>
+          <Link to="/"><li className="text-base leading-10">Gallery</li></Link>
+          <Link to="/login"><li className="text-base leading-10">Login</li></Link>
+          <Link to="/register"><li className="text-base leading-10">Register</li></Link>
         </ul>
       </div>
       <div>
         <ul className="">
-          <li className="font-bold text-2xl leading-10">Contact</li>
-          <li className="text-lg leading-10">Address: Patna, Bihar</li>
-          <li className="text-lg leading-10">Email: ujjwalanand678@gmail.com</li>
-          <li className="text-lg leading-10">Phone: +91 7903972407</li>
+          <li className="font-bold text-lg leading-11">Contact</li>
+          <li className="text-base leading-10">Address: Patna, Bihar</li>
+          <li className="text-base leading-10">Email: ujjwalanand678@gmail.com</li>
+          <li className="text-base leading-10">Phone: +91 7903972407</li>
         </ul>
       </div>
       

@@ -43,7 +43,7 @@ const Register = () => {
   // console.log(credentials);
   return (
     <>
-      <div className=" mx-90 mt-30 w-[60%] mb-40">
+      <div className=" mx-78 mt-30 w-[60%] mb-40">
         <div className="shadow-2xl grid grid-cols-2 gap-0">
           <div>
             <img src={register} alt="" />
@@ -52,38 +52,38 @@ const Register = () => {
             <img
               src={user}
               alt=""
-              className="w-[27%] relative left-47 bottom-20"
+              className="w-[27%] relative left-38 bottom-20"
             />
             <div className="relative bottom-10">
-              <p className="text-white font-bold text-4xl mb-5">Register</p>
+              <p className="text-white font-bold text-3xl mb-5">Register</p>
               <form
-                className="relative left-32 flex flex-col "
+                className="relative left-26 flex flex-col "
                 onSubmit={handleSubmit}
               >
                 <input
                   type="text"
                   placeholder="User Name"
-                  className="bg-white text-xl px-3 py-2 rounded-lg w-[50%] mb-5 outline-hidden"
+                  className="bg-white text-lg px-3 py-2 rounded-lg w-[50%] mb-5 outline-hidden"
                   id="name"
                   onChange={handlechange}
                 />
                 <input
                   type="email"
                   placeholder="Email"
-                  className="bg-white text-xl px-3 py-2 rounded-lg w-[50%] mb-5 outline-hidden"
+                  className="bg-white text-lg px-3 py-2 rounded-lg w-[50%] mb-5 outline-hidden"
                   id="email"
                   onChange={handlechange}
                 />
                 <input
                   type="password"
                   placeholder="Password"
-                  className="bg-white text-xl px-3 py-2 rounded-lg w-[50%] mb-5 outline-hidden"
+                  className="bg-white text-lg px-3 py-2 rounded-lg w-[50%] mb-5 outline-hidden"
                   id="password"
                   onChange={handlechange}
                 />
                 <button
                   type="submit"
-                  className="bg-gray-800 hover:bg-gray-700  text-white text-xl p-2 rounded-lg w-[50%]"
+                  className="bg-gray-800 hover:bg-gray-700  text-white text-lg p-2 rounded-lg w-[50%]"
                 >
                   Register
                 </button>

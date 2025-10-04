@@ -10,7 +10,7 @@ const Search = () => {
     
   };
   return (
-  <div className="mx-40 mb-40">
+  <div className="mx-40 mb-40 mt-10">
         <div className="w-full flex justify-center">
       <form onSubmit={handleSubmit} className="flex items-center bg-white rounded-full shadow-xl/20  px-6 py-8 space-x-16 ">
         {/* Location */}

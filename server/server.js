@@ -25,8 +25,8 @@ const connectDB = async() =>{
 
 //cors policy error handle
  const corsPolicy ={
-    // origin : "*",
-    origin : ["https://tour-booking-app-iota.vercel.app/"],
+    origin : "*",
+    // origin : ["https://tour-booking-app-iota.vercel.app/" ],
     credentials : true,
     methods : ["GET" , "POST" , "PUT" , "DELETE"],
     allowedHeaders : ["Content-Type" , "Authorization"],

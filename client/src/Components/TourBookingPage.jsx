@@ -12,7 +12,7 @@ const TourBookingPage = () => {
         <TourDetail />
         <PostReview/>
         </div>
-        <div>
+        <div className="ms-10">
           <TourBookingForm/>
         </div>
       </div>

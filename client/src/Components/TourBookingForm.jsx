@@ -25,7 +25,7 @@ const TourBookingForm = () => {
   };
 
   return (
-    <div className="me-40 w-[100%] bg-white shadow-md rounded-lg p-6">
+    <div className="ms-30 w-[100%] bg-white shadow-md rounded-lg p-6">
       <h2 className="text-lg font-semibold mb-4">Information</h2>
       <form onSubmit={handleSubmit} className="space-y-3">
         <input

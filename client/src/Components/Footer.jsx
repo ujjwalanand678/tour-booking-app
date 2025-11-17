@@ -6,16 +6,12 @@ const Footer = () => {
   return (
     <>
       <div className="px-4 sm:px-6 md:px-10 lg:px-20 xl:px-30 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-
         {/* Logo + Description */}
         <div>
-          <img 
-            src={travel} 
-            alt="travel logo" 
-            className="w-32 sm:w-36 mb-4"
-          />
+          <img src={travel} alt="travel logo" className="w-32 sm:w-36 mb-4" />
           <p className="text-gray-700 text-base leading-6 max-w-sm">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, natus!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum,
+            natus!
           </p>
         </div>
 
@@ -55,18 +51,34 @@ const Footer = () => {
         <div>
           <ul>
             <li className="font-bold text-xl mb-4">Contact</li>
+
             <li className="text-base mb-3">
               <strong>Address:</strong> Patna, Bihar
             </li>
+
             <li className="text-base mb-3">
-              <strong>Email:</strong> ujjwalanand678@gmail.com
+              <strong>Email:</strong>{" "}
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=ujjwalanand678@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:underline"
+              >
+                ujjwalanand678@gmail.com
+              </a>
             </li>
+
             <li className="text-base mb-3">
-              <strong>Phone:</strong> +91 7903972407
+              <strong>Phone:</strong>{" "}
+              <a
+                href="tel:+917903972407"
+                className="text-blue-600 hover:underline"
+              >
+                +91 7903972407
+              </a>
             </li>
           </ul>
         </div>
-
       </div>
 
       {/* Bottom Line */}

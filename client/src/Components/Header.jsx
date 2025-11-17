@@ -23,7 +23,7 @@ const Header = () => {
           <img
             src={travelLogo}
             alt="logo"
-            className="h-12 sm:h-14 md:h-16 cursor-pointer"
+            className="h-25 sm:h-25 md:h-30 cursor-pointer relative top-7"
           />
         </Link>
 

@@ -8,9 +8,13 @@ const AllTourDB = () => {
   const [tourData, setTourData] = useState([]);
 
   const getTourData = async () => {
-    const response = await fetch(`${BASE_URL}/getalltour`);
-    const { data } = await response.json();
-    setTourData(data);
+    try {
+      const response = await fetch(`${BASE_URL}/getalltour`);
+      const { data } = await response.json();
+      setTourData(data);
+    } catch (err) {
+      console.log("Error fetching tours:", err);
+    }
   };
 
   useEffect(() => {
@@ -24,34 +28,40 @@ const AllTourDB = () => {
       <p className="bg-amber-500 w-fit px-6 py-2 font-medium text-lg rounded-full text-center mb-4 text-white">
         Explore
       </p>
-      <h3 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-10">
+      <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-10">
         Our featured tours
       </h3>
 
-      {/* Loading State */}
+      {/* Loading */}
       {tourData?.length === 0 ? (
         <h1 className="text-center text-xl font-semibold">Loading...</h1>
       ) : (
         <div
           className="
-            grid
+            grid 
             grid-cols-1 
             sm:grid-cols-2 
             md:grid-cols-3 
             lg:grid-cols-4 
-            gap-6
+            gap-8
           "
         >
           {tourData.map((tour) => (
             <div
               key={tour._id}
-              className="bg-white rounded-xl shadow-lg overflow-hidden relative hover:shadow-xl transition"
+              className="
+                bg-white rounded-xl overflow-hidden 
+                shadow-lg hover:shadow-2xl 
+                transition-all duration-300 
+                flex flex-col
+              "
             >
+
               {/* Tour Image */}
               <img
                 src={tour.photo}
                 alt={tour.title}
-                className="w-full h-52 object-cover"
+                className="w-full h-56 md:h-52 lg:h-60 object-cover"
               />
 
               {/* Featured Tag */}
@@ -62,33 +72,39 @@ const AllTourDB = () => {
               )}
 
               {/* Content */}
-              <div className="p-4">
+              <div className="p-5 flex flex-col flex-grow">
+
                 {/* City + Rating */}
-                <div className="flex items-center justify-between text-sm text-gray-500 mb-2">
-                  <p className="flex items-center gap-1 text-lg">
-                    <IoLocationOutline className="text-amber-500 text-xl" />{" "}
+                <div className="flex items-center justify-between mb-3">
+                  <p className="flex items-center gap-1 text-lg text-gray-700">
+                    <IoLocationOutline className="text-amber-500" size={20} />
                     {tour.city}
                   </p>
-                  <p className="flex items-center gap-1 text-lg">
-                    <FaRegStar className="text-amber-500" /> {tour.avgRating}{" "}
-                    <span className="text-gray-400">({tour.numReviews})</span>
+                  <p className="flex items-center gap-1 text-lg text-gray-700">
+                    <FaRegStar className="text-amber-500" />
+                    {tour.avgRating}
+                    <span className="text-gray-400">
+                      ({tour.numReviews})
+                    </span>
                   </p>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-semibold mb-2">{tour.title}</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                  {tour.title}
+                </h3>
 
                 {/* Price */}
-                <p className="text-gray-700 mb-4">
+                <p className="text-gray-700 mb-5">
                   <span className="text-amber-600 font-bold">
                     ${tour.price}
                   </span>
-                  <span className="text-lg"> /per person</span>
+                  <span> /per person</span>
                 </p>
 
                 {/* Button */}
-                <Link to={`/singletour/${tour._id}`}>
-                  <button className="cursor-pointer w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 rounded-lg transition">
+                <Link to={`/singletour/${tour._id}`} className="mt-auto">
+                  <button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 rounded-lg transition">
                     Book Now
                   </button>
                 </Link>

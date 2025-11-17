@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { MdSearch } from "react-icons/md";
-import { LuMapPin } from "react-icons/lu";
-import { LuMapPinPlusInside } from "react-icons/lu";
+import { LuMapPin, LuMapPinPlusInside } from "react-icons/lu";
 import { FaUserFriends } from "react-icons/fa";
 
 const Search = () => {
@@ -14,61 +13,62 @@ const Search = () => {
   return (
     <div className="px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40 mt-10 mb-20">
       <div className="w-full flex justify-center">
+
         <form
           onSubmit={handleSubmit}
           className="
-            bg-white shadow-xl/20 rounded-2xl
-            w-full
+            bg-white shadow-xl rounded-2xl
+            w-full md:w-auto
             flex flex-col md:flex-row
-            items-start md:items-center
-            gap-6 md:gap-10
-            px-6 py-8
+            items-stretch
+            md:items-center
+            gap-6 md:gap-8
+            px-6 py-6
           "
         >
+
           {/* Location */}
-          <div className="flex items-center space-x-3 w-full md:w-auto">
+          <div className="flex items-center gap-3 w-full md:w-auto">
             <LuMapPin className="text-red-400" size={25} />
             <div className="w-full">
               <h3 className="font-semibold text-gray-800">Location</h3>
               <input
                 type="text"
                 placeholder="Where are you going?"
-                className="outline-none text-gray-500 placeholder-gray-400 text-lg w-full"
+                className="outline-none text-gray-500 placeholder-gray-400 text-base w-full py-2"
                 onChange={(e) => setInput(e.target.value)}
                 value={input}
               />
             </div>
           </div>
 
-          {/* Divider */}
-          <div className="hidden md:block w-px bg-gray-300 h-10"></div>
+          <div className="hidden md:block w-px bg-gray-300 h-12"></div>
 
           {/* Distance */}
-          <div className="flex items-center space-x-3 w-full md:w-auto">
+          <div className="flex items-center gap-3 w-full md:w-auto">
             <LuMapPinPlusInside className="text-red-400" size={25} />
             <div className="w-full">
               <h3 className="font-semibold text-gray-800">Distance</h3>
               <input
                 type="text"
-                placeholder="Distance k/m"
-                className="outline-none text-gray-500 placeholder-gray-400 text-lg w-full"
+                placeholder="Distance (km)"
+                className="outline-none text-gray-500 placeholder-gray-400 text-base w-full py-2"
               />
             </div>
           </div>
 
-          {/* Divider */}
-          <div className="hidden md:block w-px bg-gray-300 h-10"></div>
+          <div className="hidden md:block w-px bg-gray-300 h-12"></div>
 
           {/* Max People */}
-          <div className="flex items-center space-x-3 w-full md:w-auto">
+          <div className="flex items-center gap-3 w-full md:w-auto">
             <FaUserFriends className="text-red-400" size={25} />
             <div className="w-full">
               <h3 className="font-semibold text-gray-800">Max People</h3>
               <input
                 type="number"
-                min="0"
-                className="outline-none text-gray-500 text-lg w-full"
-                defaultValue={0}
+                min="1"
+                defaultValue={1}
+                className="outline-none text-gray-500 text-base w-full py-2"
               />
             </div>
           </div>
@@ -81,12 +81,16 @@ const Search = () => {
               p-3 rounded-xl
               hover:bg-orange-500
               transition
-              flex-shrink-0
+              md:ml-4
+              w-full md:w-auto
+              flex items-center justify-center
             "
           >
-            <MdSearch size={25} className="cursor-pointer" />
+            <MdSearch size={25} />
           </button>
+
         </form>
+
       </div>
     </div>
   );

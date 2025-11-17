@@ -23,6 +23,7 @@ const About = () => {
                 w-full max-w-sm 
                 rounded-2xl shadow-xl 
                 object-cover
+                mask-x-from-70% mask-x-to-90% mask-y-from-70% mask-y-to-90%
               "
             />
           </div>

@@ -70,7 +70,7 @@ const PostReview = () => {
   }, [id]);
 
   return (
-    <div className="w-full px-4 sm:px-6 md:px-10 lg:px-20 mt-10 mb-10">
+    <div className=" w-full mt-10 mb-10">
       <ToastContainer position="top-center" autoClose={2500} />
 
       <div className="bg-white shadow-xl rounded-xl p-6">

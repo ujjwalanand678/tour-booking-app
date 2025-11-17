@@ -20,15 +20,16 @@ const TourBookingForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Booking Data:", formData);
     alert("Booking successful!");
   };
 
   return (
-    <div className="w-full px-4 sm:px-6 md:px-10 lg:px-20 mt-10 mb-10 flex justify-center">
-      <div className="bg-white shadow-md rounded-xl p-6 w-full max-w-md">
+    <div className="w-full px-4 sm:px-6 md:px-10 lg:px-20 mt-10 mb-16 flex justify-center">
+      <div className="bg-white shadow-lg rounded-2xl p-6 w-full max-w-lg">
 
-        <h2 className="text-xl font-semibold mb-4">Information</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+          Booking Information
+        </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
 
@@ -39,7 +40,7 @@ const TourBookingForm = () => {
             placeholder="Full Name"
             value={formData.fullName}
             onChange={handleChange}
-            className="w-full border rounded-lg px-3 py-2 text-gray-700"
+            className="w-full border rounded-xl px-4 py-3 text-gray-700 focus:ring focus:ring-orange-300 outline-none"
             required
           />
 
@@ -50,18 +51,18 @@ const TourBookingForm = () => {
             placeholder="Phone Number"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full border rounded-lg px-3 py-2 text-gray-700"
+            className="w-full border rounded-xl px-4 py-3 text-gray-700 focus:ring focus:ring-orange-300 outline-none"
             required
           />
 
           {/* Date + Persons */}
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             <input
               type="date"
               name="date"
               value={formData.date}
               onChange={handleChange}
-              className="w-1/2 border rounded-lg px-3 py-2 text-gray-700"
+              className="w-full sm:w-1/2 border rounded-xl px-4 py-3 text-gray-700 focus:ring focus:ring-orange-300 outline-none"
               required
             />
 
@@ -71,17 +72,15 @@ const TourBookingForm = () => {
               value={formData.persons}
               min="1"
               onChange={handleChange}
-              className="w-1/2 border rounded-lg px-3 py-2 text-gray-700"
+              className="w-full sm:w-1/2 border rounded-xl px-4 py-3 text-gray-700 focus:ring focus:ring-orange-300 outline-none"
               required
             />
           </div>
 
-          {/* Price Calculation */}
-          <div className="border-t pt-4 mt-4 text-sm">
+          {/* Price Summary */}
+          <div className="border-t pt-4 mt-4 text-sm text-gray-700 space-y-2">
             <div className="flex justify-between">
-              <span>
-                {pricePerPerson} × {formData.persons} person
-              </span>
+              <span>{pricePerPerson} × {formData.persons} person</span>
               <span>{pricePerPerson * formData.persons}</span>
             </div>
 
@@ -90,7 +89,7 @@ const TourBookingForm = () => {
               <span>{serviceCharge}</span>
             </div>
 
-            <div className="flex justify-between font-bold text-lg mt-3">
+            <div className="flex justify-between font-bold text-lg mt-3 text-gray-900">
               <span>Total</span>
               <span>{total}</span>
             </div>
@@ -99,7 +98,7 @@ const TourBookingForm = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-orange-400 text-white py-2.5 rounded-full font-semibold hover:bg-orange-500 transition"
+            className="w-full bg-orange-500 text-white py-3 rounded-full font-semibold hover:bg-orange-600 transition"
           >
             Book Now
           </button>

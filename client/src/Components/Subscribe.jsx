@@ -1,20 +1,48 @@
 import React from "react";
-import maletourist from "../assets/male-tourist.png"
+import maletourist from "../assets/male-tourist.png";
+
 const Subscribe = () => {
   return (
-  <div className="grid grid-cols-2 px-40 bg-blue-200 items-center">
-    <div>
-        <p className="text-2xl font-medium w-142 mb-6">Subscribe now for usefull travelling information.</p>
-        <form action="" className="bg-white rounded-lg text-lg w-150 ">
-            <input type="text" placeholder="Enter Your Email" className="outline-hidden px-3"/>
-            <button type="submit" className="bg-amber-500 text-white py-2 px-4 rounded-lg relative left-60 my-3  "> Subscribe</button>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40 bg-blue-200 py-14 rounded-2xl mt-20 mb-20">
+
+      {/* LEFT TEXT SECTION */}
+      <div>
+        <p className="text-2xl sm:text-3xl font-medium mb-6 leading-snug max-w-xl">
+          Subscribe now for useful travelling information.
+        </p>
+
+        {/* Email Form */}
+        <form className="flex bg-white rounded-xl overflow-hidden shadow-sm max-w-md">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className="flex-grow px-4 py-3 text-lg outline-none"
+          />
+          <button
+            type="submit"
+            className="bg-amber-500 text-white px-6 py-3 text-lg font-semibold hover:bg-amber-600 transition"
+          >
+            Subscribe
+          </button>
         </form>
-        <p className="text-gray-700 text-lg mt-9 w-160">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia odio iure quasi! Deserunt, similique in!</p>
+
+        <p className="text-gray-700 text-lg mt-6 leading-relaxed max-w-lg">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia odio
+          iure quasi! Deserunt, similique in!
+        </p>
+      </div>
+
+      {/* RIGHT IMAGE */}
+      <div className="flex justify-center md:justify-end">
+        <img
+          src={maletourist}
+          alt="tourist"
+          className="w-full max-w-xs sm:max-w-sm md:max-w-md"
+        />
+      </div>
+
     </div>
-    <div>
-        <img src={maletourist} alt="pic pf turist" />
-    </div>
-    </div>);
+  );
 };
 
 export default Subscribe;

@@ -2,35 +2,37 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { BASE_URL } from "../utils/ConfigBaseURL";
 import { FaStar, FaUserCircle } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const PostReview = () => {
-  const { id } = useParams(); // tourId from URL
+  const { id } = useParams();
   const [reviews, setReviews] = useState([]);
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
   const [comment, setComment] = useState("");
 
-  // ✅ Fetch existing reviews
   const fetchReviews = async () => {
     try {
       const response = await fetch(`${BASE_URL}/review/getallreviews/${id}`);
       const { data } = await response.json();
       setReviews(data || []);
     } catch (error) {
-      console.error("Error fetching reviews:", error);
+      toast.error("Failed to load reviews");
     }
   };
 
-  // ✅ Post new review (with JWT)
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!rating || !comment) return alert("Please add rating & comment");
 
-    // ⬇️ Retrieve token (assuming stored in localStorage after login)
+    if (!rating || !comment.trim()) {
+      toast.error("Please add a rating and a comment");
+      return;
+    }
+
     const token = localStorage.getItem("token");
-
     if (!token) {
-      alert("Please login to post a review.");
+      toast.error("Please login to post a review");
       return;
     }
 
@@ -39,10 +41,10 @@ const PostReview = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // ✅ Send JWT
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-          tour: id, // Backend expects tourId
+          tour: id,
           rating,
           comment,
         }),
@@ -51,14 +53,15 @@ const PostReview = () => {
       const result = await response.json();
 
       if (response.ok) {
+        toast.success("Review posted successfully!");
         setComment("");
         setRating(0);
-        fetchReviews(); // refresh reviews
+        fetchReviews();
       } else {
-        alert(result.message || "Failed to post review");
+        toast.error(result.message || "Failed to post review");
       }
     } catch (error) {
-      console.error("Error posting review:", error);
+      toast.error("Something went wrong");
     }
   };
 
@@ -67,67 +70,85 @@ const PostReview = () => {
   }, [id]);
 
   return (
-    <div className="ms-40 w-full bg-white shadow-xl rounded-xl mt-10 p-6 mb-10">
-      <h2 className="text-lg font-semibold mb-4">
-        Reviews ({reviews.length} reviews)
-      </h2>
+    <div className="w-full px-4 sm:px-6 md:px-10 lg:px-20 mt-10 mb-10">
+      <ToastContainer position="top-center" autoClose={2500} />
 
-      {/* ⭐ Rating Selector */}
-      <div className="flex mb-3">
-        {[...Array(5)].map((star, index) => {
-          const starValue = index + 1;
-          return (
-            <FaStar
-              key={starValue}
-              size={24}
-              className={`cursor-pointer ${
-                starValue <= (hover || rating) ? "text-yellow-500" : "text-gray-300"
-              }`}
-              onClick={() => setRating(starValue)}
-              onMouseEnter={() => setHover(starValue)}
-              onMouseLeave={() => setHover(0)}
-            />
-          );
-        })}
-      </div>
+      <div className="bg-white shadow-xl rounded-xl p-6">
+        <h2 className="text-xl font-semibold mb-4">
+          Reviews ({reviews.length})
+        </h2>
 
-      {/* ✍️ Review Input */}
-      <form onSubmit={handleSubmit} className="flex items-center gap-2 mb-6">
-        <input
-          type="text"
-          placeholder="Share your thoughts"
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-          className="flex-1 border rounded-full px-4 py-2 text-sm"
-        />
-        <button
-          type="submit"
-          className="bg-orange-400 text-white px-5 py-2 rounded-full hover:bg-orange-500"
+        {/* ⭐ Rating Selector */}
+        <div className="flex mb-4">
+          {[...Array(5)].map((_, index) => {
+            const starValue = index + 1;
+            return (
+              <FaStar
+                key={starValue}
+                size={26}
+                onClick={() => setRating(starValue)}
+                onMouseEnter={() => setHover(starValue)}
+                onMouseLeave={() => setHover(0)}
+                className={`cursor-pointer transition ${
+                  starValue <= (hover || rating)
+                    ? "text-yellow-500"
+                    : "text-gray-300"
+                }`}
+              />
+            );
+          })}
+        </div>
+
+        {/* ✍️ Review Input */}
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col sm:flex-row items-center gap-3 mb-6"
         >
-          Submit
-        </button>
-      </form>
+          <input
+            type="text"
+            placeholder="Share your thoughts"
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+            className="flex-1 border rounded-full px-4 py-2 text-sm"
+          />
 
-      {/* 📌 List of Reviews */}
-      <div className="space-y-4">
-        {reviews.map((review, index) => (
-          <div
-            key={index}
-            className="border-t pt-3 flex items-start gap-3 text-sm"
+          <button
+            type="submit"
+            className="bg-orange-400 text-white px-6 py-2 rounded-full hover:bg-orange-500 transition"
           >
-            <FaUserCircle size={28} className="text-gray-500" />
-            <div>
-              <p className="font-semibold">{review.name}</p>
-              <p className="text-gray-500 text-xs">
-                {new Date(review.createdAt).toLocaleDateString()}
-              </p>
-              <p className="mt-1">{review.comment}</p>
+            Submit
+          </button>
+        </form>
+
+        {/* 📌 Reviews List */}
+        <div className="space-y-4">
+          {reviews.length === 0 && (
+            <p className="text-gray-500">No reviews yet.</p>
+          )}
+
+          {reviews.map((review, index) => (
+            <div
+              key={index}
+              className="border-t pt-3 flex items-start gap-3 text-sm"
+            >
+              <FaUserCircle size={32} className="text-gray-500" />
+
+              <div className="flex-1">
+                <p className="font-semibold">{review.name}</p>
+                <p className="text-gray-500 text-xs">
+                  {new Date(review.createdAt).toLocaleDateString()}
+                </p>
+                <p className="mt-1">{review.comment}</p>
+              </div>
+
+              {/* Rating */}
+              <div className="flex items-center text-yellow-500 font-semibold">
+                {review.rating}
+                <FaStar className="ml-1" />
+              </div>
             </div>
-            <div className="ml-auto flex items-center text-yellow-500">
-              {review.rating} <FaStar className="ml-1" />
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

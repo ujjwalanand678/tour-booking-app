@@ -5,51 +5,65 @@ import weather from "../assets/weather.png";
 
 const WhatWeServe = () => {
   return (
-    <div className="grid grid-cols-4 mt-25 gap-10 px-40 mb-30">
-      <div>
-        <p className="bg-amber-500 w-40 py-2 font-medium text-lg rounded-full text-center mb-3 text-white">
+    <div className="px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40 mt-20 mb-20">
+
+      {/* Title section */}
+      <div className="mb-12">
+        <p className="bg-amber-500 w-fit px-6 py-2 font-medium text-lg rounded-full text-center mb-3 text-white">
           What we serve
         </p>
-        <h3 className="text-3xl font-medium">We offer our best services</h3>
+        <h3 className="text-2xl sm:text-3xl md:text-4xl font-medium">
+          We offer our best services
+        </h3>
       </div>
-      <div className=" border-b-1 border-r-1 border-amber-500 rounded-xl p-5">
-        <div className="bg-amber-500 w-16 rounded-full mb-3">
-          <img
-            src={weather}
-            alt="weather"
-            className=" object-contain  p-2.5 "
-          />
-        </div>
-        <h3 className="text-xl mb-3 font-medium">Calculate weather</h3>
-        <p className="text-gray-700 text-base">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo
-          aspernatur animi amet velit.
-        </p>
-      </div>
-      <div className=" border-b-1 border-r-1 border-amber-500 rounded-xl p-5">
-        <div className="bg-amber-500 w-16 rounded-full mb-3">
-          <img src={guide} alt="guide" className=" object-contain  p-2.5 " />
-        </div>
-        <h3 className="text-xl mb-3 font-medium">Best tour guide</h3>
-        <p className="text-gray-700 text-base">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo
-          aspernatur animi amet velit.
-        </p>
-      </div>
-      <div className=" border-b-1 border-r-1 border-amber-500 rounded-xl p-5">
-        <div className="bg-amber-500 w-16 rounded-full mb-3">
-          <img
-            src={customization}
-            alt="customization"
-            className=" object-contain  p-2.5 "
-          />
+
+      {/* Cards Grid */}
+      <div
+        className="
+          grid 
+          grid-cols-1 
+          sm:grid-cols-2 
+          md:grid-cols-3 
+          lg:grid-cols-4 
+          gap-8
+        "
+      >
+        {/* Weather */}
+        <div className="border border-amber-500 rounded-xl p-6 shadow-sm hover:shadow-md transition">
+          <div className="bg-amber-500 w-16 h-16 rounded-full mb-4 flex items-center justify-center">
+            <img src={weather} alt="weather" className="w-10 object-contain" />
+          </div>
+          <h3 className="text-xl mb-3 font-medium">Calculate weather</h3>
+          <p className="text-gray-700 text-base leading-6">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo aspernatur animi amet velit.
+          </p>
         </div>
 
-        <h3 className="text-xl mb-3 font-medium">Customization</h3>
-        <p className="text-gray-700 text-base">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo
-          aspernatur animi amet velit.
-        </p>
+        {/* Guide */}
+        <div className="border border-amber-500 rounded-xl p-6 shadow-sm hover:shadow-md transition">
+          <div className="bg-amber-500 w-16 h-16 rounded-full mb-4 flex items-center justify-center">
+            <img src={guide} alt="guide" className="w-10 object-contain" />
+          </div>
+          <h3 className="text-xl mb-3 font-medium">Best tour guide</h3>
+          <p className="text-gray-700 text-base leading-6">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo aspernatur animi amet velit.
+          </p>
+        </div>
+
+        {/* Customization */}
+        <div className="border border-amber-500 rounded-xl p-6 shadow-sm hover:shadow-md transition">
+          <div className="bg-amber-500 w-16 h-16 rounded-full mb-4 flex items-center justify-center">
+            <img src={customization} alt="customization" className="w-10 object-contain" />
+          </div>
+
+          <h3 className="text-xl mb-3 font-medium">Customization</h3>
+          <p className="text-gray-700 text-base leading-6">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo aspernatur animi amet velit.
+          </p>
+        </div>
+
+        {/* Optional: Add a 4th card or leave it empty for balance */}
+        <div className="hidden lg:block"></div>
       </div>
     </div>
   );

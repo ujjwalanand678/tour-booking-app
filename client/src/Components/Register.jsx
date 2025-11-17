@@ -1,33 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import register from "../assets/register.png";
 import user from "../assets/user.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
-import { toast } from "react-toastify";
-import "../../node_modules/react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { BASE_URL } from "../utils/ConfigBaseURL";
 
 const Register = () => {
   const [credentials, setCredentials] = useState({
-    name: undefined,
-    email: undefined,
-    password: undefined,
+    name: "",
+    email: "",
+    password: "",
   });
+
   const navigate = useNavigate();
+
+  const handlechange = (e) => {
+    setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!credentials.name || !credentials.email || !credentials.password) {
+      toast.error("Please fill all fields!");
+      return;
+    }
+
     try {
       const res = await fetch(`${BASE_URL}/auth/register`, {
         method: "POST",
         body: JSON.stringify(credentials),
         headers: { "content-type": "application/json" },
       });
+
       const result = await res.json();
+
       if (res.ok) {
         toast.success(result.message || "User registered successfully!");
-        navigate("/login");
+        setTimeout(() => navigate("/login"), 1500);
       } else {
         toast.error(result.message || "Something went wrong!");
       }
@@ -37,67 +49,77 @@ const Register = () => {
     }
   };
 
-  const handlechange = (e) => {
-    setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
-  };
-  // console.log(credentials);
   return (
     <>
-      <div className=" mx-71 mt-30 w-[60%] mb-40">
-        <div className="shadow-2xl grid grid-cols-2 gap-0">
-          <div>
-            <img src={register} alt="" />
+      <ToastContainer position="top-center" autoClose={2500} />
+
+      {/* MAIN WRAPPER */}
+      <div className="w-full flex justify-center mt-20 mb-20 px-4">
+        <div className="shadow-2xl grid grid-cols-1 md:grid-cols-2 bg-white rounded-xl overflow-hidden max-w-4xl w-full">
+
+          {/* Left Image */}
+          <div className="hidden md:block">
+            <img src={register} alt="register" className="w-full h-full object-cover" />
           </div>
-          <div className="flex flex-col bg-orange-300 text-center ">
+
+          {/* Right Form Section */}
+          <div className="flex flex-col items-center bg-orange-300 py-10 px-6">
+
             <img
               src={user}
-              alt=""
-              className="w-[27%] relative left-38 bottom-20"
+              alt="user"
+              className="w-28 mb-6"
             />
-            <div className="relative bottom-10">
-              <p className="text-white font-bold text-3xl mb-5">Register</p>
-              <form
-                className="relative left-26 flex flex-col "
-                onSubmit={handleSubmit}
+
+            <p className="text-white font-bold text-3xl mb-6">Register</p>
+
+            <form onSubmit={handleSubmit} className="w-full max-w-sm flex flex-col">
+
+              <input
+                type="text"
+                placeholder="User Name"
+                id="name"
+                className="bg-white text-lg px-4 py-3 rounded-lg mb-4 outline-none"
+                onChange={handlechange}
+              />
+
+              <input
+                type="email"
+                placeholder="Email"
+                id="email"
+                className="bg-white text-lg px-4 py-3 rounded-lg mb-4 outline-none"
+                onChange={handlechange}
+              />
+
+              <input
+                type="password"
+                placeholder="Password"
+                id="password"
+                className="bg-white text-lg px-4 py-3 rounded-lg mb-4 outline-none"
+                onChange={handlechange}
+              />
+
+              <button
+                type="submit"
+                className="bg-gray-800 hover:bg-gray-700 text-white text-lg py-3 rounded-lg mt-2 transition"
               >
-                <input
-                  type="text"
-                  placeholder="User Name"
-                  className="bg-white text-lg px-3 py-2 rounded-lg w-[50%] mb-5 outline-hidden"
-                  id="name"
-                  onChange={handlechange}
-                />
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="bg-white text-lg px-3 py-2 rounded-lg w-[50%] mb-5 outline-hidden"
-                  id="email"
-                  onChange={handlechange}
-                />
-                <input
-                  type="password"
-                  placeholder="Password"
-                  className="bg-white text-lg px-3 py-2 rounded-lg w-[50%] mb-5 outline-hidden"
-                  id="password"
-                  onChange={handlechange}
-                />
-                <button
-                  type="submit"
-                  className="bg-gray-800 hover:bg-gray-700  text-white text-lg p-2 rounded-lg w-[50%]"
-                >
-                  Register
-                </button>
-              </form>
-              <p className="text-white text-xl font-bold mt-6">
-                Already have an account?
+                Register
+              </button>
+            </form>
+
+            <p className="text-white text-lg font-semibold mt-6">
+              Already have an account?
+            </p>
+
+            <Link to="/login">
+              <p className="text-black text-xl font-bold mt-2 hover:underline">
+                Login
               </p>
-              <Link to="/login">
-                <p className="text-black text-xl font-bold mt-4">Login</p>
-              </Link>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
+
       <Footer />
     </>
   );

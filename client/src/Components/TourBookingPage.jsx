@@ -7,16 +7,29 @@ import Footer from "./Footer";
 const TourBookingPage = () => {
   return (
     <>
-      <div className="grid grid-cols-2 mt-30">
+      <div
+        className="
+        grid 
+        grid-cols-1 
+        lg:grid-cols-2 
+        gap-10 
+        px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40 
+        mt-16 mb-20
+      "
+      >
+        {/* LEFT SIDE – Tour Details + Reviews */}
         <div>
-        <TourDetail />
-        <PostReview/>
+          <TourDetail />
+          <PostReview />
         </div>
-        <div className="ms-10">
-          <TourBookingForm/>
+
+        {/* RIGHT SIDE – Booking Form */}
+        <div className="lg:pl-6">
+          <TourBookingForm />
         </div>
       </div>
-      <Footer/>
+
+      <Footer />
     </>
   );
 };

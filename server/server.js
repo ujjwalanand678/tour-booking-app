@@ -24,17 +24,21 @@ const connectDB = async() =>{
 
 
 //cors policy error handle
- const corsPolicy ={
-    origin : "*",
-    // origin : ["https://tour-booking-app-iota.vercel.app/" ],
-    credentials : true,
-    methods : ["GET" , "POST" , "PUT" , "DELETE"],
-    allowedHeaders : ["Content-Type" , "Authorization"],
-    exposedHeaders : ["Content-Type"]
- }
+const corsPolicy = {
+  origin: [
+    "http://localhost:5173",
+    "https://tour-booking-app-iota.vercel.app"
+  ],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  exposedHeaders: ["Content-Type"]
+};
+
 
 // Middleware to parse JSON request bodies
 app.use(cors(corsPolicy))
+// app.options("*", cors(corsPolicy));  // very important for preflight requests
 app.use(express.json());
 app.use("/worldtour" , TourRoutes) // postman check done
 app.use("/worldtour/auth" , AuthRoutes) // postman check done

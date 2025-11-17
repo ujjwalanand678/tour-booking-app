@@ -12,7 +12,7 @@ import { ToastContainer } from "react-toastify";
 
 const Home = () => {
   return (
-    <div className="pt-20 md:pt-24 lg:pt-32 sm:px-6 md:px-10">
+    <div className="pt-20 md:pt-24 lg:pt-32 ">
       <ToastContainer position="top-center" autoClose={3000} />
 
       <Hero />

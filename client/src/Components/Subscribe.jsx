@@ -3,7 +3,7 @@ import maletourist from "../assets/male-tourist.png";
 
 const Subscribe = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40 bg-blue-200 py-14 rounded-2xl mt-20 mb-20">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40 bg-blue-200 py-14 mt-20 mb-20">
 
       {/* LEFT TEXT SECTION */}
       <div>
